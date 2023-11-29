@@ -4,12 +4,22 @@ var hardKkd = 8000;
 var normalKkd = 4000;
 
 $(function () {
-	$("#ex").text("12345");
-	$('input[name="target_kkd"').val(localStorage.getItem("target_kkd"));
-	$('input[name="current_kkd"').val(localStorage.getItem("current_kkd"));
 
-	console.log(localStorage.getItem("target_kkd"));
-	console.log(localStorage.getItem("current_kkd"));
+	$('input[name="target_kkd"').val(localStorage.getItem("target_kkd"));
+    $('input[name="current_kkd"').val(localStorage.getItem("current_kkd"));
+
+    console.log(localStorage.getItem("explus_kkd"));
+
+    if (localStorage.getItem("explus_kkd")) {
+        explusKkd = localStorage.getItem("explus_kkd");
+    }
+
+    if (localStorage.getItem("ex_kkd")) {
+        exKkd = localStorage.getItem("ex_kkd");
+    }
+
+    $('input[name="explus_kkd"').val(explusKkd);
+    $('input[name="ex_kkd"').val(exKkd);
 
     $('.format-digit').on('blur', function () {
         $(this).val(getFormatInputDigit($(this).val(), 0));
@@ -32,21 +42,25 @@ $(function () {
 });
 
 function refreshResult() {
-	var targetKkd = $('input[name="target_kkd"').val().replaceAll(',', '');
+
+    var targetKkd = $('input[name="target_kkd"').val().replaceAll(',', '');
     var currentKkd = $('input[name="current_kkd"').val().replaceAll(',', '');
+    explusKkd = String($('input[name="explus_kkd"').val()).replaceAll(',', '')
+    exKkd = String($('input[name="ex_kkd"').val()).replaceAll(',', '')
+
 	var restKkd = targetKkd - currentKkd;
 	var tmpKkd = restKkd
 	var modKkd;
+
+    
 
 	modKkd = tmpKkd % explusKkd;
 	tmpKkd = tmpKkd - modKkd;
 
 	localStorage.setItem("target_kkd", getFormatInputDigit(targetKkd, 0));
     localStorage.setItem("current_kkd", getFormatInputDigit(currentKkd, 0));
-
-    console.log(targetKkd);
-    console.log(currentKkd);
-    console.log(restKkd);
+    localStorage.setItem("explus_kkd", getFormatInputDigit(String(explusKkd), 0));
+    localStorage.setItem("ex_kkd", getFormatInputDigit(String(exKkd), 0));
 
     $("#rest").text(getFormatInputDigit(String(restKkd), 0));
     $("#explus").text(restKkd / explusKkd | 0);

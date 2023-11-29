@@ -2,18 +2,28 @@ body {
 	background-image: url(../img/background.jpg);
 	background-size: cover;
 	background-repeat: no-repeat;
-	max-width: 700px;
-	margin: 10 auto;
+	max-width: 1280px;
+	margin: 10px auto;
 	font-family: "Verdana";
+	touch-action: pan-x pan-y;
 }
 
 h1 {
 	text-align: center;
 	color: white;
+	font-size: 40px;
+}
+
+input {
+	border: none;
+	border-radius: 5px;
+	background-color: rgba(255, 255, 255, 0.5);
+	text-align: center;
+	font-weight: bold;
 }
 
 .main_contents_wrap {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.5);
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
@@ -32,10 +42,11 @@ h1 {
 
 .result {
 	width: 100%;
-	max-width: 300px;
 	display: flex;
 	flex-direction: row;
 	justify-content: stretch;
+	line-height: 1.4em;
+	font-size: 28px;
 	font-weight: bold;
 }
 
@@ -45,7 +56,8 @@ h1 {
 
 .block-title p {
 	font-weight: bold;
-	font-size: 24px;
+	font-size: 32px;
+	line-height: 1.4em;
 	margin: 5px auto;
 }
 
@@ -54,24 +66,27 @@ h1 {
 }
 
 .block-data input[type="text"] {
-	max-width: 300px;
-	border: 1px black solid;
-	border-radius: 5px;
-	height: 36px;
-	font-size: 24px;
+	height: 1.4em;
+	font-size: 32px;
 	font-weight: bold;
 	text-align: center;
 }
 
 .block-data p {
-	height: 36px;
-	font-size: 18px;
+	line-height: 1.4em;
+	font-size: 32px;
 	font-weight: bold;
 }
 
 .inline-title {
 	width: 49%;
 	text-align: left;
+}
+.inline-title>input {
+	width: 50%;
+	height: 1.4em;
+	font-size: inherit;
+	float: right;
 }
 
 .inline-data {
