@@ -18,8 +18,8 @@ $(function () {
         exKkd = localStorage.getItem("ex_kkd");
     }
 
-    $('input[name="explus_kkd"').val(explusKkd);
-    $('input[name="ex_kkd"').val(exKkd);
+    $('input[name="explus_kkd"').val(getFormatInputDigit(String(explusKkd), 0));
+    $('input[name="ex_kkd"').val(getFormatInputDigit(String(exKkd), 0));
 
     $('.format-digit').on('blur', function () {
         $(this).val(getFormatInputDigit($(this).val(), 0));
