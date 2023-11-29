@@ -1,5 +1,5 @@
 var explusKkd = 88000;
-var exKkd = 50567;
+var exKkd = 50578;
 var hardKkd = 8000;
 var normalKkd = 4000;
 
