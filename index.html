@@ -1,1 +1,71 @@
-<h1>aaa</h1>
+<head>
+    <link rel="stylesheet" href="css/common.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <h1>貢献度調整</h1>
+    <div class="main_contents_wrap">
+        <div class="block-title">
+            <p>目標貢献度</p>
+        </div>
+        <div class="block-data">
+            <input type="text" name="target_kkd" value="0" class="format-digit">
+        </div>
+        <div class="block-title">
+            <p>現在の貢献度</p>
+        </div>
+        <div class="block-data">
+            <input type="text" name="current_kkd" value="0" class="format-digit">
+        </div>
+        <!--
+        <div>
+            <input type="button" value="計算" onclick="refreshResult();">
+        </div>
+        -->
+        <div class="block-title">
+            <p>残りの貢献度</p>
+        </div>
+        <div class="block-data">
+            <p id="rest"></p>
+        </div>
+        <!--
+        <div class="result">
+            <span class="inline-title">残りの貢献度</span>
+            <span class="inline-data">
+                <span id="rest">0</span>
+            </span>
+        </div>
+        -->
+        <div class="result">
+            <span class="inline-title">EX+</span>
+            <span class="inline-data">
+                <span id="explus">233</span>回
+            </span>
+        </div>
+        <div class="result">
+            <span class="inline-title">EX</span>
+            <span class="inline-data">
+                <span id="ex">233</span>回
+            </span>
+        </div>
+        <div class="result">
+            <span class="inline-title">HARD</span>
+            <span class="inline-data">
+                <span id="hard">4</span>回
+            </span>
+        </div>
+        <div class="result">
+            <span class="inline-title">NORMAL</span>
+            <span class="inline-data">
+                <span id="normal">4</span>回
+            </span>
+        </div>
+        <div class="result">
+            <span class="inline-title">ルピフリップ</span>
+            <span class="inline-data">
+                <span id="rupi">4</span>
+            </span>
+        </div>
+    </div>
+</body>

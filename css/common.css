@@ -1,0 +1,80 @@
+body {
+	background-image: url(../img/background.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	max-width: 700px;
+	margin: 10 auto;
+	font-family: "Verdana";
+}
+
+h1 {
+	text-align: center;
+	color: white;
+}
+
+.main_contents_wrap {
+	background-color: rgba(255, 255, 255, 0.7);
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 5px;
+}
+
+.main_contents_wrap > div{
+	width: 98%;
+	margin: 5px auto;
+}
+
+.main_contents_wrap input {
+	width: 100%;
+}
+
+.result {
+	width: 100%;
+	max-width: 300px;
+	display: flex;
+	flex-direction: row;
+	justify-content: stretch;
+	font-weight: bold;
+}
+
+.block-title {
+	text-align: center;
+}
+
+.block-title p {
+	font-weight: bold;
+	font-size: 24px;
+	margin: 5px auto;
+}
+
+.block-data {
+	text-align: center;
+}
+
+.block-data input[type="text"] {
+	max-width: 300px;
+	border: 1px black solid;
+	border-radius: 5px;
+	height: 36px;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.block-data p {
+	height: 36px;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.inline-title {
+	width: 49%;
+	text-align: left;
+}
+
+.inline-data {
+	width: 49%;
+	text-align: right;
+}
