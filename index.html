@@ -3,9 +3,10 @@
     <link rel="stylesheet" href="css/common.css">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
+    <title>古戦場貢献度調整ツール</title>
 </head>
 <body>
-    <h1>貢献度調整</h1>
+    <h1>古戦場貢献度調整ツール</h1>
     <div class="main_contents_wrap">
         <div class="block-title">
             <p>目標貢献度</p>
@@ -42,9 +43,15 @@
                 EX
                 <input type="text" name="ex_kkd" value="" class="format-digit">
             </span>
-            
+
             <span class="inline-data">
                 <span id="ex">0</span>回
+            </span>
+        </div>
+        <div class="result">
+            <span class="inline-title">VERY HARD</span>
+            <span class="inline-data">
+                <span id="very_hard">0</span>回
             </span>
         </div>
         <div class="result">
@@ -65,5 +72,43 @@
                 <span id="rupi">0</span>
             </span>
         </div>
+    </div>
+    <div class="sub_contents_wrap">
+        <h2>詳細設定</h2>
+        <div class="setting_item">
+            <div class="title">EXを使う</div>
+            <div class="switch">
+                <label for="ex_toggle" class="switch_label">
+                    <input type="checkbox" id="ex_toggle" checked />
+                    <span class="circle"></span>
+                    <span class="base"></span>
+                </label>
+            </div>
+        </div>
+        <div class="setting_item">
+            <div class="title">VERY HARDを使う</div>
+            <div class="switch">
+                <label for="very_hard_toggle" class="switch_label">
+                    <input type="checkbox" id="very_hard_toggle" checked />
+                    <span class="circle"></span>
+                    <span class="base"></span>
+                </label>
+            </div>
+        </div>
+        <h2>準備・注意事項</h2>
+        <ul>
+            <li>EX+、EX等のマルチバトルは弱体(バブ/ミスト)とか参戦者強化(レイジ)があると貢献度がズレるので自分が貢献度いくつ出すか確認して入力してください。特になければ初期値(88,000と50,578)のはずです。</li>
+            <li>たまにルピフリップのダメージがブレたりでミスるので回数多少余裕持たせて下から合わせるのがおすすめです。</li>
+            <li>なるべく野良ではなく団員さんのマルチでやりましょう。</li>
+        </ul>
+        <h2>やり方</h2>
+        <ul>
+            <li>適当に残り100万とかになるまでHELLを使いながら稼いで行きます。</li>
+            <li>ルピフリップが残り1桁くらいになるまでマルチに入って弱体アビとかルピフリップを打ちましょう。(ルピフリップは大体100HELLだと1000ルピで9くらいの貢献度です)</li>
+            <li>残り1桁になったらマルチに自強化アビだけ打たせてもらいましょう。(1だけ入ります。肉集めに入るとすぐ終わるのでおすすめ。)</li>
+            <li>0になったら残りの回数分やって終了です。</li>
+        </ul>
+
+
     </div>
 </body>

@@ -14,6 +14,23 @@ h1 {
 	font-size: 40px;
 }
 
+h2 {
+	color: white;
+	text-align: center;
+	font-size: 24px;
+	margin: 5px 0 5px 0;
+}
+
+ul {
+	padding-left: 1.4em;
+}
+
+li {
+	color: white;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
 input {
 	border: none;
 	border-radius: 5px;
@@ -22,13 +39,27 @@ input {
 	font-weight: bold;
 }
 
+input[type='checkbox'] {
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
 .main_contents_wrap {
 	background-color: rgba(255, 255, 255, 0.5);
 	display: flex;
 	flex-direction: column;
 	border-radius: 10px;
 	margin: 10px;
-	padding: 5px;
+	padding: 10px;
+}
+
+.sub_contents_wrap {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	margin: 10px;
+	padding: 10px;
 }
 
 .main_contents_wrap > div{
@@ -92,4 +123,67 @@ input {
 .inline-data {
 	width: 49%;
 	text-align: right;
+}
+
+.setting_item {
+	margin: 10px 0 10px 0;
+	color: white;
+	vertical-align: middle;
+}
+
+.setting_item > .title {
+	display: flex;
+	justify-content: center;
+	height: 30px;
+	line-height: 30px;
+	position: relative;
+	float: left;
+	vertical-align: middle;
+}
+
+.switch_label {
+	display: flex;
+	align-items: center;
+}
+
+input[type='checkbox'] {
+	position: absolute;
+	width: 0;
+	height: 0;
+}
+
+.base {
+	width: 54px;
+	border: white 2px solid;
+	border-radius: 21px;
+	height: 30px;
+	background-color: dimgray;
+}
+
+.title {
+	margin-left: 4px;
+}
+
+.switch {
+	position: relative;
+	float: right;
+}
+
+.circle {
+	position: absolute;
+	top: 5px;
+	left: 5px;
+	width: 24px;
+	height: 24px;
+	border-radius: 12px;
+	background-color: white;
+}
+
+input:checked ~ .base {
+	background-color: forestgreen;
+}
+
+input:checked ~ .circle {
+	transform: translateX(100%);
+	background-color: white;
 }

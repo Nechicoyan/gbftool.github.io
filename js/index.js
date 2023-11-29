@@ -1,5 +1,6 @@
 var explusKkd = 88000;
 var exKkd = 50578;
+var veryhardKkd = 21400;
 var hardKkd = 8000;
 var normalKkd = 4000;
 
@@ -18,6 +19,8 @@ $(function () {
         exKkd = localStorage.getItem("ex_kkd");
     }
 
+    $('#ex_toggle').attr('checked', true).prop('checked', (localStorage.getItem("enable_ex") == 'true')).change();
+    $('#very_hard_toggle').attr('checked', true).prop('checked', (localStorage.getItem("enable_very_hard") == 'true')).change();
     $('input[name="explus_kkd"').val(getFormatInputDigit(String(explusKkd), 0));
     $('input[name="ex_kkd"').val(getFormatInputDigit(String(exKkd), 0));
 
@@ -38,18 +41,25 @@ $(function () {
         $(this).val(comma_removed_val);
     });
 
+    $('input[type="checkbox"]').change(function () {
+        refreshResult();
+    });
+
 	refreshResult();
 });
 
 function refreshResult() {
-
+    console.log('refreshResult');
     var targetKkd = $('input[name="target_kkd"').val().replaceAll(',', '');
     var currentKkd = $('input[name="current_kkd"').val().replaceAll(',', '');
-    explusKkd = String($('input[name="explus_kkd"').val()).replaceAll(',', '')
-    exKkd = String($('input[name="ex_kkd"').val()).replaceAll(',', '')
+    var enableEx = $('#ex_toggle').prop("checked");
+    var enableVeryHard = $('#very_hard_toggle').prop("checked");
+
+    explusKkd = String($('input[name="explus_kkd"').val()).replaceAll(',', '');
+    exKkd = String($('input[name="ex_kkd"').val()).replaceAll(',', '');
 
 	var restKkd = targetKkd - currentKkd;
-	var tmpKkd = restKkd
+    var tmpKkd = restKkd;
 	var modKkd;
 
     
@@ -61,20 +71,34 @@ function refreshResult() {
     localStorage.setItem("current_kkd", getFormatInputDigit(currentKkd, 0));
     localStorage.setItem("explus_kkd", getFormatInputDigit(String(explusKkd), 0));
     localStorage.setItem("ex_kkd", getFormatInputDigit(String(exKkd), 0));
+    localStorage.setItem("enable_ex", String(enableEx));
+    localStorage.setItem("enable_very_hard", String(enableVeryHard));
 
     $("#rest").text(getFormatInputDigit(String(restKkd), 0));
+
     $("#explus").text(restKkd / explusKkd | 0);
-
     restKkd = restKkd % explusKkd;
-    $("#ex").text(restKkd / exKkd | 0);
 
-    restKkd = restKkd % exKkd;
+    if (enableEx) {    
+        $("#ex").text(restKkd / exKkd | 0);
+        restKkd = restKkd % exKkd;
+    } else {
+        $("#ex").text(0);
+    }
+
+    if (enableVeryHard) {
+        $("#very_hard").text(restKkd / veryhardKkd | 0);
+        restKkd = restKkd % veryhardKkd;
+    } else {
+        $("#very_hard").text(0);
+    }
+
     $("#hard").text(restKkd / hardKkd | 0);
-
     restKkd = restKkd % hardKkd;
-    $("#normal").text(restKkd / normalKkd | 0);
 
+    $("#normal").text(restKkd / normalKkd | 0);
     restKkd = restKkd % normalKkd;
+
     $("#rupi").text(restKkd);
 }
 
