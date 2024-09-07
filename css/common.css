@@ -187,3 +187,13 @@ input:checked ~ .circle {
 	transform: translateX(100%);
 	background-color: white;
 }
+
+#reset_button_explus,
+#reset_button_ex {
+	margin-top: 3px;
+	margin-bottom: 3px;
+	height: 30px;
+	font-size: 18px;
+	vertical-align: middle;
+	border-radius: 3px;
+}

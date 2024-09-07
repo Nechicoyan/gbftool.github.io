@@ -1,13 +1,16 @@
-var explusKkd = 88000;
-var exKkd = 50578;
+var defaultExplusKkd = 127600;
+var defaultExKkd = 64800;
+
+var explusKkd = 127600;
+var exKkd = 64800;
 var veryhardKkd = 21400;
 var hardKkd = 8000;
 var normalKkd = 4000;
 
 $(function () {
 
-	$('input[name="target_kkd"').val(localStorage.getItem("target_kkd"));
-    $('input[name="current_kkd"').val(localStorage.getItem("current_kkd"));
+	$('input[name="target_kkd"]').val(localStorage.getItem("target_kkd"));
+    $('input[name="current_kkd"]').val(localStorage.getItem("current_kkd"));
 
     console.log(localStorage.getItem("explus_kkd"));
 
@@ -21,8 +24,18 @@ $(function () {
 
     $('#ex_toggle').attr('checked', true).prop('checked', (localStorage.getItem("enable_ex") == 'true')).change();
     $('#very_hard_toggle').attr('checked', true).prop('checked', (localStorage.getItem("enable_very_hard") == 'true')).change();
-    $('input[name="explus_kkd"').val(getFormatInputDigit(String(explusKkd), 0));
-    $('input[name="ex_kkd"').val(getFormatInputDigit(String(exKkd), 0));
+    $('input[name="explus_kkd"]').val(getFormatInputDigit(String(explusKkd), 0));
+    $('input[name="ex_kkd"]').val(getFormatInputDigit(String(exKkd), 0));
+
+    $('#reset_button_explus').click(function() {
+        $('input[name="explus_kkd"]').val(getFormatInputDigit(String(defaultExplusKkd), 0));
+        refreshResult();
+    });
+
+    $('#reset_button_ex').click(function() {
+        $('input[name="ex_kkd"]').val(getFormatInputDigit(String(defaultExKkd), 0));
+        refreshResult();
+      });
 
     $('.format-digit').on('blur', function () {
         $(this).val(getFormatInputDigit($(this).val(), 0));
@@ -50,13 +63,13 @@ $(function () {
 
 function refreshResult() {
     console.log('refreshResult');
-    var targetKkd = $('input[name="target_kkd"').val().replaceAll(',', '');
-    var currentKkd = $('input[name="current_kkd"').val().replaceAll(',', '');
+    var targetKkd = $('input[name="target_kkd"]').val().replaceAll(',', '');
+    var currentKkd = $('input[name="current_kkd"]').val().replaceAll(',', '');
     var enableEx = $('#ex_toggle').prop("checked");
     var enableVeryHard = $('#very_hard_toggle').prop("checked");
 
-    explusKkd = String($('input[name="explus_kkd"').val()).replaceAll(',', '');
-    exKkd = String($('input[name="ex_kkd"').val()).replaceAll(',', '');
+    explusKkd = String($('input[name="explus_kkd"]').val()).replaceAll(',', '');
+    exKkd = String($('input[name="ex_kkd"]').val()).replaceAll(',', '');
 
 	var restKkd = targetKkd - currentKkd;
     var tmpKkd = restKkd;
